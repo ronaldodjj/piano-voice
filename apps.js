@@ -14,5 +14,8 @@ const APPS = [
     description: "Graba o sube tu voz y obtén una armonía (3ª/5ª) exportada como MP3 con sonido de piano.",
     icon: "🎤",
     path: "apps/voice-harmony/index.html",
+    // En beta: la detección de tono todavía no da resultados suficientemente
+    // buenos. Oculta del menú hasta que mejore; el código sigue en apps/voice-harmony.
+    enabled: false,
   },
 ];

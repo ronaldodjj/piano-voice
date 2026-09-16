@@ -1,7 +1,7 @@
 function renderApps() {
   const grid = document.getElementById("app-grid");
 
-  APPS.forEach((app) => {
+  APPS.filter((app) => app.enabled !== false).forEach((app) => {
     const card = document.createElement("a");
     card.className = "app-card";
     card.href = app.path;

@@ -1,4 +1,4 @@
-const CACHE_NAME = "piano-virtual-v2";
+const CACHE_NAME = "piano-virtual-v3";
 const APP_SHELL = [
   "./",
   "./index.html",

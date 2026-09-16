@@ -54,6 +54,13 @@
     <div class="piano-wrapper">
       <div id="piano" class="piano"></div>
     </div>
+
+    <div class="recording-bar">
+      <button id="record-btn" class="install-btn">Grabar</button>
+      <span id="record-status" class="record-status"></span>
+      <a id="recording-download" class="install-btn download-btn" download="piano-voice.webm" hidden>Descargar grabación</a>
+    </div>
+    <audio id="recording-audio" controls hidden></audio>
   </div>
   <script src="../shared/harmony-theory.js"></script>
   <script src="script.js"></script>

@@ -18,6 +18,11 @@ const KEYBOARD_MAP = {
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 const activeVoices = new Map();
 
+// Todas las notas pasan por aquí antes de los parlantes, para poder
+// desviar también la señal a un MediaStreamDestination al grabar.
+const masterGain = audioCtx.createGain();
+masterGain.connect(audioCtx.destination);
+
 function playNote(id, freq) {
   if (activeVoices.has(id)) return;
   if (audioCtx.state === "suspended") audioCtx.resume();
@@ -39,7 +44,7 @@ function playNote(id, freq) {
 
   oscillator.connect(filter);
   filter.connect(gain);
-  gain.connect(audioCtx.destination);
+  gain.connect(masterGain);
   oscillator.start(now);
 
   activeVoices.set(id, { oscillator, gain });
@@ -233,8 +238,79 @@ function registerServiceWorker() {
   });
 }
 
+function extensionFromMime(mimeType) {
+  if (mimeType && mimeType.includes("ogg")) return "ogg";
+  if (mimeType && mimeType.includes("mp4")) return "mp4";
+  return "webm";
+}
+
+function setupRecording() {
+  const recordBtn = document.getElementById("record-btn");
+  const statusEl = document.getElementById("record-status");
+  const audioEl = document.getElementById("recording-audio");
+  const downloadLink = document.getElementById("recording-download");
+
+  if (typeof MediaRecorder === "undefined") {
+    recordBtn.disabled = true;
+    statusEl.textContent = "Grabación no disponible en este navegador.";
+    return;
+  }
+
+  let mediaRecorder = null;
+  let recordedChunks = [];
+  let isRecording = false;
+  let recordingDestination = null;
+  let recordingUrl = null;
+
+  const startRecording = () => {
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+    recordingDestination = audioCtx.createMediaStreamDestination();
+    masterGain.connect(recordingDestination);
+
+    recordedChunks = [];
+    mediaRecorder = new MediaRecorder(recordingDestination.stream);
+    mediaRecorder.addEventListener("dataavailable", (e) => {
+      if (e.data.size > 0) recordedChunks.push(e.data);
+    });
+    mediaRecorder.addEventListener("stop", () => {
+      masterGain.disconnect(recordingDestination);
+
+      const blob = new Blob(recordedChunks, { type: mediaRecorder.mimeType || "audio/webm" });
+      if (recordingUrl) URL.revokeObjectURL(recordingUrl);
+      recordingUrl = URL.createObjectURL(blob);
+
+      audioEl.src = recordingUrl;
+      audioEl.hidden = false;
+      downloadLink.href = recordingUrl;
+      downloadLink.download = `piano-voice.${extensionFromMime(mediaRecorder.mimeType)}`;
+      downloadLink.hidden = false;
+      statusEl.textContent = "Grabación lista.";
+    });
+    mediaRecorder.start();
+  };
+
+  recordBtn.addEventListener("click", () => {
+    if (!isRecording) {
+      audioEl.hidden = true;
+      downloadLink.hidden = true;
+      startRecording();
+      isRecording = true;
+      recordBtn.textContent = "Detener grabación";
+      recordBtn.classList.add("recording");
+      statusEl.textContent = "Grabando… toca el piano.";
+    } else {
+      mediaRecorder.stop();
+      isRecording = false;
+      recordBtn.textContent = "Grabar";
+      recordBtn.classList.remove("recording");
+    }
+  });
+}
+
 setupScaleControls();
 const keyElements = buildPiano();
 setupInteractions(keyElements);
 setupInstallPrompt();
 registerServiceWorker();
+setupRecording();
