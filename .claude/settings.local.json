@@ -6,7 +6,23 @@
       "PowerShell(node \"C:\\\\Users\\\\NJ316\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-NJ316-Desktop-programing-proyects-demo\\\\0002a56b-44f7-4320-b660-87c858a4be17\\\\scratchpad\\\\test_harmony.js\")",
       "PowerShell(node --check \"sw.js\")",
       "PowerShell(Start-Process -FilePath \"node\" -ArgumentList '\"C:\\\\Users\\\\NJ316\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-NJ316-Desktop-programing-proyects-demo\\\\0002a56b-44f7-4320-b660-87c858a4be17\\\\scratchpad\\\\static_server.js\"', '\"c:\\\\Users\\\\NJ316\\\\Desktop\\\\programing proyects demo\"', '8080' -WindowStyle Hidden)",
-      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:8080/manifest.json\" -UseBasicParsing)"
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:8080/manifest.json\" -UseBasicParsing)",
+      "WebFetch(domain:github.com)",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/gleitz/midi-js-soundfonts@gh-pages/FluidR3_GM/acoustic_grand_piano-mp3/C4.mp3\")",
+      "Bash(node --check apps/shared/harmony-theory.js)",
+      "Bash(node --check apps/piano-voice/script.js)",
+      "Bash(curl -sI \"https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js\")",
+      "Bash(grep -o \"global\\\\.lamejs[^,;]*\\\\|window\\\\.lamejs[^,;]*\\\\|this\\\\.lamejs[^,;]*\\\\|exports\\\\.lamejs\" \"/c/Users/NJ316/AppData/Local/Temp/claude/c--Users-NJ316-Desktop-programing-proyects-demo/0002a56b-44f7-4320-b660-87c858a4be17/scratchpad/lame.min.js\" | head -5)",
+      "Read(//c/Users/NJ316/AppData/Local/Temp/claude/c--Users-NJ316-Desktop-programing-proyects-demo/0002a56b-44f7-4320-b660-87c858a4be17/scratchpad/**)",
+      "Bash(grep -o '\"lamejs\"' \"/c/Users/NJ316/AppData/Local/Temp/claude/c--Users-NJ316-Desktop-programing-proyects-demo/0002a56b-44f7-4320-b660-87c858a4be17/scratchpad/lame.min.js\" | head -3 *)",
+      "Bash(tail -c 500 \"/c/Users/NJ316/AppData/Local/Temp/claude/c--Users-NJ316-Desktop-programing-proyects-demo/0002a56b-44f7-4320-b660-87c858a4be17/scratchpad/lame.min.js\")",
+      "Bash(node --check apps/voice-harmony/script.js)",
+      "Bash(node --check apps.js)",
+      "Bash(curl -s -o /dev/null -w \"hub=%{http_code}\\\\n\" http://localhost:8080/index.html)",
+      "Bash(curl -s -o /dev/null -w \"voice-harmony=%{http_code}\\\\n\" http://localhost:8080/apps/voice-harmony/index.html)",
+      "Bash(curl -s -o /dev/null -w \"samples=%{http_code}\\\\n\" http://localhost:8080/apps/voice-harmony/samples/piano-C4.mp3)",
+      "Bash(curl -s -o /dev/null -w \"shared=%{http_code}\\\\n\" http://localhost:8080/apps/shared/harmony-theory.js)",
+      "Bash(node \"/c/Users/NJ316/AppData/Local/Temp/claude/c--Users-NJ316-Desktop-programing-proyects-demo/0002a56b-44f7-4320-b660-87c858a4be17/scratchpad/test_pitch.js\")"
     ]
   }
 }

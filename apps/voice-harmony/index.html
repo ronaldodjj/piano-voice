@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Voice Harmony</title>
+<meta name="theme-color" content="#12141a">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <a href="../../index.html" class="back-link">&larr; Menú</a>
+    <div class="app-header">
+      <h1>Voice Harmony</h1>
+    </div>
+    <p class="hint">Graba o sube tu voz cantando una melodía y obtén una voz de coro (3ª/5ª) en piano, exportada como MP3</p>
+
+    <section class="panel">
+      <h2>1. Tu melodía</h2>
+      <div class="input-row">
+        <button id="record-btn" class="action-btn">Grabar</button>
+        <label class="file-btn">
+          Subir archivo
+          <input type="file" id="file-input" accept="audio/*" hidden>
+        </label>
+        <span id="input-status" class="status-text">Esperando audio…</span>
+      </div>
+      <audio id="raw-audio" controls hidden></audio>
+    </section>
+
+    <section class="panel">
+      <h2>2. Notas detectadas</h2>
+      <p class="warning-text">La detección funciona mejor con notas claras y sostenidas (cantadas o tarareadas). Ruido de fondo, respiración, vibrato fuerte o pasajes muy rápidos pueden generar notas erróneas o perdidas.</p>
+      <div class="piano-roll-wrapper">
+        <div id="piano-roll" class="piano-roll"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>3. Armonía</h2>
+      <div class="controls">
+        <div class="control-group">
+          <label for="tonic">Tónica</label>
+          <select id="tonic"></select>
+        </div>
+        <div class="control-group">
+          <label for="mode">Escala</label>
+          <select id="mode">
+            <option value="major">Mayor</option>
+            <option value="naturalMinor">Menor natural</option>
+            <option value="harmonicMinor">Menor armónica</option>
+            <option value="melodicMinor">Menor melódica</option>
+          </select>
+        </div>
+        <div class="control-group voices">
+          <span class="voices-title">Coro</span>
+          <label class="voice-option voice-3up"><input type="checkbox" data-voice="3up"> 3ª arriba</label>
+          <label class="voice-option voice-3down"><input type="checkbox" data-voice="3down"> 3ª abajo</label>
+          <label class="voice-option voice-5up"><input type="checkbox" data-voice="5up"> 5ª arriba</label>
+          <label class="voice-option voice-5down"><input type="checkbox" data-voice="5down"> 5ª abajo</label>
+        </div>
+        <div class="control-group">
+          <label class="voice-option mute-option"><input type="checkbox" id="mute-melody"> Solo coro (silenciar melodía)</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>4. Generar y descargar</h2>
+      <div class="input-row">
+        <button id="generate-btn" class="action-btn" disabled>Generar</button>
+        <a id="download-btn" class="action-btn download-btn" hidden download="armonia.mp3">Descargar MP3</a>
+        <span id="generate-status" class="status-text"></span>
+      </div>
+      <audio id="result-audio" controls hidden></audio>
+    </section>
+  </div>
+
+  <script src="../shared/harmony-theory.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

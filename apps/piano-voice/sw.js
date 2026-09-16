@@ -1,4 +1,4 @@
-const CACHE_NAME = "piano-virtual-v1";
+const CACHE_NAME = "piano-virtual-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -8,6 +8,7 @@ const APP_SHELL = [
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/icon-180.png",
+  "../shared/harmony-theory.js",
 ];
 
 self.addEventListener("install", (event) => {

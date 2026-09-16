@@ -1,6 +1,6 @@
 {
-  "name": "Piano Virtual - 5 Octavas",
-  "short_name": "Piano Virtual",
+  "name": "Piano Voice - 5 Octavas",
+  "short_name": "Piano Voice",
   "description": "Piano virtual de 5 octavas con voces de coro (terceras y quintas) basadas en escalas mayores y menores.",
   "start_url": "./index.html",
   "scope": "./",

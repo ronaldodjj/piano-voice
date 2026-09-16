@@ -2,58 +2,18 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Piano Virtual - 5 Octavas</title>
-
-<link rel="manifest" href="manifest.json">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mis Apps</title>
 <meta name="theme-color" content="#12141a">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-180.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Piano Virtual">
-
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="app">
-    <div class="app-header">
-      <h1>Piano Virtual</h1>
-      <button id="install-btn" class="install-btn" hidden>Instalar app</button>
-    </div>
-    <p class="hint">Toca las teclas, usa tu teclado físico o deslízate para ver más octavas</p>
-
-    <div class="controls">
-      <div class="control-group">
-        <label for="tonic">Tónica</label>
-        <select id="tonic"></select>
-      </div>
-      <div class="control-group">
-        <label for="mode">Escala</label>
-        <select id="mode">
-          <option value="major">Mayor</option>
-          <option value="naturalMinor">Menor natural</option>
-          <option value="harmonicMinor">Menor armónica</option>
-          <option value="melodicMinor">Menor melódica</option>
-        </select>
-      </div>
-      <div class="control-group voices">
-        <span class="voices-title">Coro</span>
-        <label class="voice-option voice-3up"><input type="checkbox" data-voice="3up"> 3ª arriba</label>
-        <label class="voice-option voice-3down"><input type="checkbox" data-voice="3down"> 3ª abajo</label>
-        <label class="voice-option voice-5up"><input type="checkbox" data-voice="5up"> 5ª arriba</label>
-        <label class="voice-option voice-5down"><input type="checkbox" data-voice="5down"> 5ª abajo</label>
-      </div>
-      <div class="control-group">
-        <label class="voice-option mute-option"><input type="checkbox" id="mute-melody"> Solo coro (silenciar melodía)</label>
-      </div>
-    </div>
-
-    <div class="piano-wrapper">
-      <div id="piano" class="piano"></div>
-    </div>
+  <div class="hub">
+    <h1>Mis Apps</h1>
+    <p class="hint">Elige una aplicación para comenzar</p>
+    <div id="app-grid" class="app-grid"></div>
   </div>
+  <script src="apps.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
