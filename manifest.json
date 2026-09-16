@@ -1,0 +1,25 @@
+{
+  "name": "Piano Virtual - 5 Octavas",
+  "short_name": "Piano Virtual",
+  "description": "Piano virtual de 5 octavas con voces de coro (terceras y quintas) basadas en escalas mayores y menores.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#12141a",
+  "theme_color": "#12141a",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --check \"script.js\")",
+      "PowerShell(npm ls -g puppeteer puppeteer-core 2>$null)",
+      "PowerShell(node \"C:\\\\Users\\\\NJ316\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-NJ316-Desktop-programing-proyects-demo\\\\0002a56b-44f7-4320-b660-87c858a4be17\\\\scratchpad\\\\test_harmony.js\")",
+      "PowerShell(node --check \"sw.js\")",
+      "PowerShell(Start-Process -FilePath \"node\" -ArgumentList '\"C:\\\\Users\\\\NJ316\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-NJ316-Desktop-programing-proyects-demo\\\\0002a56b-44f7-4320-b660-87c858a4be17\\\\scratchpad\\\\static_server.js\"', '\"c:\\\\Users\\\\NJ316\\\\Desktop\\\\programing proyects demo\"', '8080' -WindowStyle Hidden)",
+      "PowerShell(Invoke-WebRequest -Uri \"http://localhost:8080/manifest.json\" -UseBasicParsing)"
+    ]
+  }
+}
